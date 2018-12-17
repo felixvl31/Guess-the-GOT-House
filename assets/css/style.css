@@ -1,86 +1,81 @@
-body{
+body {
   background-color: #39383d;
   color: #f6efe6;
-  background-image : url("../images/pattern.jpg");
-  background-repeat : repeat;
-  opacity:.9;
+  background-image: url("../images/pattern.jpg");
+  background-repeat: repeat;
+  opacity: 0.9;
 }
-
 
 /* Header */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    height:auto;
-    background-color: #39383d;
-    color: #f6efe6;
-    border: #f6efe6 double 20px;
-    opacity: .8;
-  } 
-  h1{
-    padding: 30px 30px;
-    font-size: 60px;
-    text-align: center;
-  }
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+  background-color: #39383d;
+  color: #f6efe6;
+  border: #f6efe6 double 20px;
+  opacity: 0.8;
+}
+h1 {
+  padding: 30px 30px;
+  font-size: 60px;
+  text-align: center;
+}
 
-  /* Main */
-  .container-main {
-    width: 80%;
-    margin: 0 auto;
-    height: 500px;
-    /* border: #f6efe6 double 10px; */
-    display: table;
-      background-image: url("../images/background.jpg");
-  background-repeat:no-repeat;
+/* Main */
+.container-main {
+  width: 80%;
+  margin: 0 auto;
+  height: 500px;
+  border: #f6efe6 double 10px;
+  display: table;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
   background-size: 100% 100%;
-
-  } 
-.container-image{
+}
+.container-image {
   width: auto;
   border: #c32536 double 10px;
   float: left;
   box-sizing: border-box;
   margin: 15px 20px;
-  opacity:0.9;
-} 
-.container-body{
+  opacity: 0.95;
+}
+.container-body {
   background-color: #39383d;
-  opacity:0.9;
+  opacity: .95;
   width: auto;
   height: auto;
   border: #c32536 double 10px;
   float: right;
   box-sizing: border-box;
   margin: 15px 20px;
-  text-align: center; 
-} 
+  text-align: center;
+}
 
-#instructions{
+#instructions {
   font-size: 30px;
   margin: 50px 20px 20px;
 }
-#currentWord{
+#currentWord {
   letter-spacing: 10px;
   font-size: 40px;
   margin: 30px auto 10px;
 }
 
-.infoText{
-  font-size:25px;
+.infoText {
+  font-size: 25px;
   margin: 20px 40px 5px;
 }
 
-#wrongGuess{
-  font-size:20px;
+#wrongGuess {
+  font-size: 20px;
   letter-spacing: 4mpx;
-
 }
 
-#livesLeft, #wordsGuessed,#wordsMissed{
-  font-size:20px;
+#livesLeft,
+#wordsGuessed,
+#wordsMissed {
+  font-size: 20px;
   margin-bottom: 10px;
 }
-
-/* #wordsMissed{
-  margin-bottom: 70px;
-} */

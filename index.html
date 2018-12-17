@@ -15,22 +15,35 @@
 
   <main>
     <div class="container-main">
+
       <div class="container-image">
-        <img id="houseSigil" src="assets/images/blank.jpg" alt= House width="300px" height="auto">
+        <img id="houseSigil" src="assets/images/blank.jpg" alt= House width="300px" height="auto" >
       </div>  
+
       <div class= "container-body">   
-        <div id="instructions">Press SPACE to begin!</div>
-        <div id="currentWord"></div>
-        <div class="infoText">Letters already guessed: </div>
-        <div id="wrongGuess"></div>
-        <div class="infoText"> Tries left:</div>    <div id ="livesLeft"> 8 </div>
-        <div class="infoText"> Houses Guessed:</div> <div id ="wordsGuessed"> 0 </div>
-        <div class="infoText"> Houses Missed:</div>  <div id ="wordsMissed"> 0 </div>
+        <h2 id="instructions">
+          Press SPACE to begin!
+        </h2>
+          <h3 id="currentWord"></h3>
+        <h3 class="infoText">
+          Letters already guessed: 
+        </h3>
+          <p id="wrongGuess"></p>
+
+        <h4 class="infoText">   Tries left:  </h4>    
+          <p id ="livesLeft">  8   </p>
+        <h4 class="infoText">   Houses Guessed:</h4> 
+          <p id ="wordsGuessed"> 0 </p>
+        <h4 class="infoText">   Houses Missed:</h4>  
+          <p id ="wordsMissed"> 0 </p>
       </div> 
+      
     </div>
-</main>
+  </main>
  
 
-  <script src=assets/javascript/game.js type="text/javascript"></script>
+  <script src=assets/javascript/game.js type="text/javascript">
+  </script>
+
 </body>
 </html>

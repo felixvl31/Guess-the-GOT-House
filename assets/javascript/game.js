@@ -27,8 +27,19 @@ var Houses = [
   "tully",
   "tyrell",
   "mormont",
+  "karstark",
+  "swyft",
+  "westerling",
+  "allyrion",
+  "hornwood",
+  "crakehall",
+  "cerwyn",
+  "mallister",
   "frey",
-  "clegane"
+  "clegane",
+  "selmy",
+  "dondarrion",
+  "seaworth"
 ];
 
 // Select random House and remove it from array
@@ -37,11 +48,11 @@ var secretWord = Houses[randomIndex];
 Houses.splice(randomIndex, 1);
 currentWord.innerHTMl = secretWord.replace(/[a-z]/gi, "_");
 
-var currentDisplay = currentWord.innerHTMl;
+var currentWordDisplay = currentWord.innerHTMl;
 var currentGuesses = wrongGuess.innerHTML;
 var wordComplete = false;
 
-var life = 8;
+var life = 10;
 var gamesWon = 0;
 var gamesLost = 0;
 livesLeft.innerHTML = life;
@@ -67,13 +78,10 @@ document.onkeyup = function doThisOnKeyUp(event) {
       for (i = 0; i < secretWord.length; i++) {
         if (secretWord[i] == event.key) {
           correctGuess = true;
-          currentDisplay = replaceAt(currentDisplay, i, event.key);
-        } else if (
-          i == secretWord.length - 1 &&
-          !correctGuess &&
-          isLetter(event.key)
-        ) {
-          currentGuesses += event.key + ",";
+          currentWordDisplay = replaceAt(currentWordDisplay, i, event.key);
+        } 
+        else if (i == secretWord.length - 1 && !correctGuess && isLetter(event.key)) {
+          currentGuesses += event.key + ","; 
           life -= 1;
         }
       }
@@ -83,38 +91,42 @@ document.onkeyup = function doThisOnKeyUp(event) {
       gamesLost += 1;
       document.getElementById("houseSigil").src= "assets/images/"+secretWord+ ".jpg";
       alert("The house was " + secretWord);
-      
     }
 
-    if (currentDisplay == secretWord) {
+    if (currentWordDisplay == secretWord) {
       alert("House guessed!");
       wordComplete = true;
       document.getElementById("houseSigil").src= "assets/images/"+secretWord+ ".jpg";
       gamesWon += 1;
     }
 
-    currentWord.innerHTML = currentDisplay;
+    currentWord.innerHTML = currentWordDisplay;
     wrongGuess.innerHTML = currentGuesses;
     livesLeft.innerHTML = life;
 
     if (wordComplete || life == 0) {
       wordComplete = false;
       life = 8;
+
       if (Houses.length == 0) {
         alert("Game Complete");
       }
+
       randomIndex = Math.floor(Math.random() * Houses.length);
       secretWord = Houses[randomIndex];
+
       if (Houses.length == 1) {
         alert("Last Word");
       }
+
       displayText = false;
       instructions.innerHTML = "Press SPACE for a new word";
       Houses.splice(randomIndex, 1);
       currentWord.innerHTMl = secretWord.replace(/[a-z]/gi, "_");
-      currentDisplay = secretWord.replace(/[a-z]/gi, "_");
+      currentWordDisplay = secretWord.replace(/[a-z]/gi, "_");
       currentGuesses = " ";
       correctGuess = false;
+      
     }
   }
 };
