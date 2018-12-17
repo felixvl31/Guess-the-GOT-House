@@ -9,23 +9,28 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header></header>
+  <header class="container">
+    <h1>Guess the House</h1>
+  </header>
 
-  <div class= "container"> 
-    <div id="instructions">Press SPACE to begin!</div>
-    <div id="currentWord"></div>
-    <div>Letters already guessed: </div>
-    <div id="wrongGuess"></div>
-    <div > Tries left:</div>
-    <div id ="livesLeft"> 8 </div>
+  <main>
+    <div class="container-main">
+      <div class="container-image">
+        <img id="houseSigil" src="assets/images/blank.jpg" alt= House width="300px" height="auto">
+      </div>  
+      <div class= "container-body">   
+        <div id="instructions">Press SPACE to begin!</div>
+        <div id="currentWord"></div>
+        <div class="infoText">Letters already guessed: </div>
+        <div id="wrongGuess"></div>
+        <div class="infoText"> Tries left:</div>    <div id ="livesLeft"> 8 </div>
+        <div class="infoText"> Houses Guessed:</div> <div id ="wordsGuessed"> 0 </div>
+        <div class="infoText"> Houses Missed:</div>  <div id ="wordsMissed"> 0 </div>
+      </div> 
+    </div>
+</main>
+ 
 
-        <div > Words Guessed:</div>
-    <div id ="wordsGuessed"> 0 </div>
-
-        <div > Words Missed:</div>
-    <div id ="wordsMissed"> 0 </div>
-
-  </div> 
   <script src=assets/javascript/game.js type="text/javascript"></script>
 </body>
 </html>

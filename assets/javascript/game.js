@@ -20,7 +20,7 @@ var Houses = [
   "stark",
   "arryn",
   "lannister",
-  "targeryen",
+  "targaryen",
   "greyjoy",
   "baratheon",
   "martell",
@@ -58,6 +58,7 @@ document.onkeyup = function doThisOnKeyUp(event) {
 
   if (event.keyCode == 32) {
     instructions.innerHTML = " ";
+    document.getElementById("houseSigil").src="assets/images/blank.jpg";
     displayText = true;
   }
 
@@ -80,12 +81,15 @@ document.onkeyup = function doThisOnKeyUp(event) {
 
     if (life == 0) {
       gamesLost += 1;
+      document.getElementById("houseSigil").src= "assets/images/"+secretWord+ ".jpg";
       alert("The house was " + secretWord);
+      
     }
 
     if (currentDisplay == secretWord) {
       alert("House guessed!");
       wordComplete = true;
+      document.getElementById("houseSigil").src= "assets/images/"+secretWord+ ".jpg";
       gamesWon += 1;
     }
 
