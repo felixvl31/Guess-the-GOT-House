@@ -70,7 +70,7 @@ document.onkeyup = function doThisOnKeyUp(event) {
 
   if (event.keyCode == 13) {
     instructions.innerHTML = "Try to guess the House";
-    document.getElementById("houseSigil").src="assets/images/blank.jpg";
+    document.getElementById("houseSigil").src="assets/images/blank.png";
     displayText = true;
   }
 

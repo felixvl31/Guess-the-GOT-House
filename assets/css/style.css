@@ -10,19 +10,19 @@ body {
 .container {
   width: 960px;
   margin: 15px auto;
-  height: auto;
+  height:100px;
   background-color: rgba(52,58,64,.75);
   color: #f6efe6;
   border: #c32536 groove 15px;
 
 }
 h1 {
-  padding: 20px 20px;
+  /* padding: 20px 20px;
   font-size: 60px;
   text-align: center;
   opacity:1;
   font-weight: 900;
-  text-shadow: 3px 3px #c32536;
+  text-shadow: 3px 3px #c32536; */
 }
 
 /* Main */
@@ -47,10 +47,8 @@ Main{
   float: left;
   box-sizing: border-box;
   margin: 20px 40px 20px;
-  opacity: 0.95;
 }
-.container-image:hover {
-  opacity: 1.0;}
+
 
 .container-body {
   background-color: rgba(52,58,64,.97);
