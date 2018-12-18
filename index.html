@@ -10,32 +10,44 @@
 </head>
 <body>
   <header class="container">
-    <h1>Guess the House</h1>
+    <h1>
+      Guess the House
+    </h1>
   </header>
 
   <main>
     <div class="container-main">
 
       <div class="container-image">
-        <img id="houseSigil" src="assets/images/blank.jpg" alt= House width="300px" height="auto" >
+        <img id="houseSigil" src="assets/images/blank.jpg" alt= House width="200px" height="auto" >
       </div>  
 
       <div class= "container-body">   
         <h2 id="instructions">
-          Press SPACE to begin!
+          Press ENTER to begin!
+          <p id="currentWord"> _ _ _</p>
         </h2>
-          <h3 id="currentWord"></h3>
+          
         <h3 class="infoText">
           Letters already guessed: 
+          <span id="wrongGuess"></span>
         </h3>
-          <p id="wrongGuess"></p>
 
-        <h4 class="infoText">   Tries left:  </h4>    
-          <p id ="livesLeft">  8   </p>
-        <h4 class="infoText">   Houses Guessed:</h4> 
-          <p id ="wordsGuessed"> 0 </p>
-        <h4 class="infoText">   Houses Missed:</h4>  
-          <p id ="wordsMissed"> 0 </p>
+        <div class="infoText">   
+          Tries left:  
+          <span id ="livesLeft">  10 </span>
+        </div>    
+          
+        <div class="infoText">   
+          Houses Guessed:
+          <span id ="wordsGuessed"> 0 </span>
+        </div> 
+
+        <div class="infoText">   
+          Houses Missed:
+          <span id ="wordsMissed"> 0 </span>
+        </div>  
+          
       </div> 
       
     </div>

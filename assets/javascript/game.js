@@ -60,6 +60,7 @@ var displayText = false;
 
 console.log(secretWord);
 
+
 document.onkeyup = function doThisOnKeyUp(event) {
   var correctGuess = false;
   var previousGuess = findLetter(currentGuesses, event.key);
@@ -67,8 +68,8 @@ document.onkeyup = function doThisOnKeyUp(event) {
   wordsGuessed.innerHTML = gamesWon;
   wordsMissed.innerHTML = gamesLost;
 
-  if (event.keyCode == 32) {
-    instructions.innerHTML = " ";
+  if (event.keyCode == 13) {
+    instructions.innerHTML = "Try to guess the House";
     document.getElementById("houseSigil").src="assets/images/blank.jpg";
     displayText = true;
   }
@@ -76,16 +77,20 @@ document.onkeyup = function doThisOnKeyUp(event) {
   if (displayText) {
     if (!previousGuess) {
       for (i = 0; i < secretWord.length; i++) {
-        if (secretWord[i] == event.key) {
+        if (secretWord[i] == event.key.toLowerCase()) {
           correctGuess = true;
-          currentWordDisplay = replaceAt(currentWordDisplay, i, event.key);
+          currentWordDisplay = replaceAt(currentWordDisplay, i, event.key.toLowerCase());
         } 
         else if (i == secretWord.length - 1 && !correctGuess && isLetter(event.key)) {
-          currentGuesses += event.key + ","; 
+          currentGuesses += event.key.toLowerCase() + ","; 
           life -= 1;
         }
       }
     }
+
+    currentWord.innerHTML = currentWordDisplay;
+    wrongGuess.innerHTML = currentGuesses;
+    livesLeft.innerHTML = life;
 
     if (life == 0) {
       gamesLost += 1;
@@ -94,33 +99,30 @@ document.onkeyup = function doThisOnKeyUp(event) {
     }
 
     if (currentWordDisplay == secretWord) {
-      alert("House guessed!");
+      // alert("House guessed!");
       wordComplete = true;
       document.getElementById("houseSigil").src= "assets/images/"+secretWord+ ".jpg";
       gamesWon += 1;
     }
 
-    currentWord.innerHTML = currentWordDisplay;
-    wrongGuess.innerHTML = currentGuesses;
-    livesLeft.innerHTML = life;
+
 
     if (wordComplete || life == 0) {
       wordComplete = false;
-      life = 8;
+      life = 10;
 
       if (Houses.length == 0) {
         alert("Game Complete");
       }
 
-      randomIndex = Math.floor(Math.random() * Houses.length);
-      secretWord = Houses[randomIndex];
-
       if (Houses.length == 1) {
         alert("Last Word");
       }
 
+      randomIndex = Math.floor(Math.random() * Houses.length);
+      secretWord = Houses[randomIndex];
       displayText = false;
-      instructions.innerHTML = "Press SPACE for a new word";
+      instructions.innerHTML = "Press ENTER for a new word";
       Houses.splice(randomIndex, 1);
       currentWord.innerHTMl = secretWord.replace(/[a-z]/gi, "_");
       currentWordDisplay = secretWord.replace(/[a-z]/gi, "_");
