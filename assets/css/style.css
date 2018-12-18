@@ -42,7 +42,7 @@ Main{
 }
 .container-image {
   width: auto;
-  height:auto;
+  height:329px;
   border: #c32536 groove 10px;
   float: left;
   box-sizing: border-box;
@@ -53,7 +53,7 @@ Main{
 .container-body {
   background-color: rgba(52,58,64,.97);
   width: 600px;
-  height: 330px;
+  height: 329px;
   border: #c32536 groove 10px;
   float: left;
   box-sizing: border-box;

@@ -46,6 +46,7 @@ var Houses = [
 var randomIndex = Math.floor(Math.random() * Houses.length);
 var secretWord = Houses[randomIndex];
 Houses.splice(randomIndex, 1);
+
 currentWord.innerHTMl = secretWord.replace(/[a-z]/gi, "_");
 
 var currentWordDisplay = currentWord.innerHTMl;
@@ -113,6 +114,7 @@ document.onkeyup = function doThisOnKeyUp(event) {
 
       if (Houses.length == 0) {
         alert("Game Complete");
+        instructions.innerHTML = "Game Complete";
       }
 
       if (Houses.length == 1) {
@@ -121,10 +123,10 @@ document.onkeyup = function doThisOnKeyUp(event) {
 
       randomIndex = Math.floor(Math.random() * Houses.length);
       secretWord = Houses[randomIndex];
+      Houses.splice(randomIndex, 1);
       displayText = false;
       instructions.innerHTML = "Press ENTER for a new word";
-      Houses.splice(randomIndex, 1);
-      currentWord.innerHTMl = secretWord.replace(/[a-z]/gi, "_");
+      currentWord.innerHTML = secretWord.replace(/[a-z]/gi, "_");
       currentWordDisplay = secretWord.replace(/[a-z]/gi, "_");
       currentGuesses = " ";
       correctGuess = false;
