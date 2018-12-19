@@ -69,7 +69,7 @@ document.onkeyup = function doThisOnKeyUp(event) {
   wordsGuessed.innerHTML = gamesWon;
   wordsMissed.innerHTML = gamesLost;
 
-  if (event.keyCode == 13) {
+  if (event.keyCode == 13 && !displayText) {
     instructions.innerHTML = "Try to guess the House";
     document.getElementById("houseSigil").src="assets/images/blank.png";
     displayText = true;

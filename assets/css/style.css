@@ -4,6 +4,7 @@ body {
   background-repeat: repeat;
   opacity: 0.9;
   min-width:980px;
+  font-family: 'Metamorphous', cursive;
 }
 
 /* Header */
@@ -12,17 +13,7 @@ body {
   margin: 15px auto;
   height:100px;
   background-color: rgba(52,58,64,.75);
-  color: #f6efe6;
   border: #c32536 groove 15px;
-
-}
-h1 {
-  /* padding: 20px 20px;
-  font-size: 60px;
-  text-align: center;
-  opacity:1;
-  font-weight: 900;
-  text-shadow: 3px 3px #c32536; */
 }
 
 /* Main */
@@ -43,7 +34,7 @@ Main{
 .container-image {
   width: auto;
   height:329px;
-  border: #c32536 groove 10px;
+  /* border: #c32536 groove 10px; */
   float: left;
   box-sizing: border-box;
   margin: 20px 40px 20px;
@@ -51,7 +42,7 @@ Main{
 
 
 .container-body {
-  background-color: rgba(52,58,64,.97);
+  background-color: rgba(52,58,64,.75);
   width: 600px;
   height: 329px;
   border: #c32536 groove 10px;
@@ -62,8 +53,9 @@ Main{
 }
 
 #instructions {
-  font-size: 40px;
+  font-size: 30px;
   margin: 10px;
+  text-shadow: 1px 1px #c32536;
 }
 #currentWord {
   letter-spacing: 10px;
@@ -76,11 +68,14 @@ Main{
 .infoText {
   font-size:30px;
   margin: 10px 40px 5px;
+  text-shadow: 1px 1px #c32536;
 }
 
 #wrongGuess {
   font-size: 25px;
-  letter-spacing: 4mpx;
+  letter-spacing: 4px;
+  text-shadow: 1px 1px #c32536;
+  font-family: 'MedievalSharp', cursive;
 }
 
 #livesLeft,
@@ -89,5 +84,7 @@ Main{
   font-size: 25px;
   margin-bottom: 5px;
   text-decoration-line: underline;
-   text-decoration-style: solid;
+  text-decoration-style: solid;
+  text-shadow: 1px 1px #c32536;
+  font-family: 'MedievalSharp', cursive;
 }

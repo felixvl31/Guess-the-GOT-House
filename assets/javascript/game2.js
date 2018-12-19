@@ -30,6 +30,7 @@ var game = {
   gamesLost:0,
   initialized: false,
   correctGuess: false,
+  continue: false,
   randomRemove: function(){
       index = Math.floor(Math.random()*this.houses.length);
       this.secretWord = this.houses[index];
@@ -43,10 +44,14 @@ document.onkeyup = function doThisOnKeyUp(event){
   game.previousGuess = findLetter(game.currentGuesses,event.key);
   game.correctGuess = false;
   
-  // Start game when "Enter" is pressed
-  if (event.keyCode == 13) {
+console.log(event.click);
+
+
+  // Start game when a key is pressed
+  if (event.keyCode !== (-1) && !game.initialized) {
     instructions.innerHTML = "Try to guess the House";
     document.getElementById("houseSigil").src="assets/images/blank.png";
+    document.getElementById("image").style.border= "none";
     game.initialized = true;
     // Select initial word to display
     game.randomRemove();
@@ -63,29 +68,33 @@ document.onkeyup = function doThisOnKeyUp(event){
         if (game.secretWord[i] == event.key.toLowerCase()) {
           game.correctGuess = true;
           game.currentWordDisplay = replaceAt(game.currentWordDisplay, i, event.key.toLowerCase());
+  
         } 
         else if (i == game.secretWord.length - 1 && !game.correctGuess && isLetter(event.key)) {
           game.currentGuesses += event.key.toLowerCase() + ","; 
           game.lives -= 1;
+
         }
       }
     }
-
+    // console.log(game.currentWordDisplay);
     currentWord.innerHTML = game.currentWordDisplay;
     wrongGuess.innerHTML = game.currentGuesses;
     livesLeft.innerHTML = game.lives;
-
+    
     if (game.lives == 0) {
       game.gamesLost += 1;
       document.getElementById("houseSigil").src= "assets/images/"+game.secretWord+ ".jpg";
-      alert("The house was " + game.secretWord);
+      document.getElementById("image").style.border= "#c32536 groove 10px";
+      setTimeout(function() { alert("The house was " + game.secretWord); },100);
     }
 
     if (game.currentWordDisplay == game.secretWord) {
-      // alert("House guessed!");
       game.wordComplete = true;
       document.getElementById("houseSigil").src= "assets/images/"+game.secretWord+ ".jpg";
+      document.getElementById("image").style.border= "#c32536 groove 10px";
       game.gamesWon += 1;
+      setTimeout(function() { alert("House guessed!"); },100);
     }
 
     if (game.wordComplete || game.lives == 0) {
@@ -94,7 +103,7 @@ document.onkeyup = function doThisOnKeyUp(event){
 
       if (game.houses.length == 0) {
         currentWord.innerHTML = game.currentWordDisplay;
-        alert("Game Complete");
+         setTimeout(function() { alert("Game Complete"); },100);
         instructions.innerHTML = "Game Complete";
       }
 
@@ -103,7 +112,8 @@ document.onkeyup = function doThisOnKeyUp(event){
       }
 
       game.initialized = false;
-      instructions.innerHTML = "Press ENTER for a new word";    
+      instructions.innerHTML = "Press any key for a new word";
+
       wordsGuessed.innerHTML = game.gamesWon;
       wordsMissed.innerHTML = game.gamesLost;
     }
