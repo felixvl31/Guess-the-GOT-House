@@ -16,9 +16,9 @@ function findLetter(string, letter) {
 }
 
 var game = {
-  houses: [ "stark","arryn","lannister","targaryen","greyjoy","baratheon",
-            "martell","tully","tyrell","mormont","karstark","swyft","westerling",
-            "allyrion","hornwood","crakehall","cerwyn","mallister","frey","clegane",
+  houses: [ //"stark","arryn","lannister","targaryen","greyjoy","baratheon",
+            // "martell","tully","tyrell","mormont","karstark","swyft","westerling",
+            // "allyrion","hornwood","crakehall","cerwyn","mallister","frey","clegane",
             "selmy","dondarrion","seaworth"],
   secretWord: "",
   currentWordDisplay: "",
@@ -81,14 +81,16 @@ document.onkeyup = function doThisOnKeyUp(event){
         }
       }
     }
-    currentWord.innerHTML = game.currentWordDisplay;      // Update displays                                
+    currentWord.innerHTML = game.currentWordDisplay;                                             // Update displays                                
     wrongGuess.innerHTML = game.currentGuesses;
     livesLeft.innerHTML = game.lives;
     
     if (game.lives == 0) {                                                                       //Verify if the user already lost all lives 
       game.gamesLost += 1;                                                                       //Increase a Lost to the overall Missed score
+      if (game.houses.length !== 0){
       game.soundFail.volume = 0.1;                                                               //Decrease volume
       game.soundFail.play();                                                                     //Play sound
+      }
       document.getElementById("houseSigil").src= "assets/images/"+game.secretWord+ ".jpg";       //Display house sigil
       document.getElementById("image").style.border= "#c32536 groove 10px";                      //Add border to the house sigil
       setTimeout(function() { alert("The house was " + game.secretWord); },100);                 //Pop a delayed alert with the correct answer
@@ -96,8 +98,10 @@ document.onkeyup = function doThisOnKeyUp(event){
 
     if (game.currentWordDisplay == game.secretWord) {                                            //Verify is the current word display matches the secretWord     
       game.gamesWon += 1;                                                                        //Increase a Lost to the overall Guessed score
+      if (game.houses.length !== 0){
       game.soundRight.volume = 0.1;                                                              //Decrease volume
       game.soundRight.play();                                                                    //Play sound
+      }                                                                  
       game.wordComplete = true;                                                                  //Flag to know that the user completed one word 
       document.getElementById("houseSigil").src= "assets/images/"+game.secretWord+ ".jpg";       //Display house sigil
       document.getElementById("image").style.border= "#c32536 groove 10px";                      //Add border to the house sigil
