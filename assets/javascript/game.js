@@ -93,7 +93,7 @@ document.onkeyup = function doThisOnKeyUp(event){
       }
       document.getElementById("houseSigil").src= "assets/images/"+game.secretWord+ ".jpg";       //Display house sigil
       document.getElementById("image").style.border= "#c32536 groove 10px";                      //Add border to the house sigil
-      setTimeout(function() { alert("The house was " + game.secretWord); },100);                 //Pop a delayed alert with the correct answer
+      setTimeout(function() { alert("The house was " + game.secretWord); },100);                   //Pop a delayed alert with the correct answer
     }
 
     if (game.currentWordDisplay == game.secretWord) {                                            //Verify is the current word display matches the secretWord     
