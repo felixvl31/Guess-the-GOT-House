@@ -4,6 +4,7 @@
 ## Description  
 Word Guess game with Game of Thrones Houses
 ***
+![Demo](./assets/demo/Game-of-Houses.png)
 ## Notes
 * Computer only
 ***
